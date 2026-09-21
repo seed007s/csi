@@ -206,6 +206,16 @@ input[type="radio"],input[type="checkbox"]{accent-color:#276fa5;vertical-align:-
   height:10.4mm !important;       /* 기존 13mm의 80% */
 }
 
+
+/* 증거①: 볼펜 선폭을 mm 단위로 직접 기록 */
+.width-entry{display:inline-flex;align-items:center;justify-content:center;gap:3px;white-space:nowrap}
+.width-mm{
+  width:16mm;height:6mm;box-sizing:border-box;
+  border:1px solid #8fa6b7;border-radius:4px;
+  text-align:center;font-size:8.5pt;background:#fff;padding:1px 2px;
+}
+.width-entry strong{font-size:8pt;color:#26333e}
+
 @page{size:A4 portrait;margin:0}
 @media print{body{background:white}.toolbar{display:none}.page{margin:0;box-shadow:none}}
 </style>
@@ -243,7 +253,7 @@ input[type="radio"],input[type="checkbox"]{accent-color:#276fa5;vertical-align:-
    <div class="card">
     <div class="cardhead">증거 ② 화학증거</div>
     <div class="visual">🧪 ✨</div>
-    <div class="cardbody"><b>루미놀 반응 비교</b><br>용의자별 시료에서 나타나는 발광 반응 여부를 비교합니다.<label class="write-label">관찰 결과</label><textarea class="evidence-input" placeholder="관찰한 결과를 입력하세요."></textarea></div>
+    <div class="cardbody"><b>루미놀 반응과 자외선 반응</b><br>용의자별 시료에서 나타나는 발광 반응 여부를 비교합니다.<label class="write-label">관찰 결과</label><textarea class="evidence-input" placeholder="관찰한 결과를 입력하세요."></textarea></div>
    </div>
    <div class="card">
     <div class="cardhead">증거 ③ 지문증거</div>
@@ -255,11 +265,11 @@ input[type="radio"],input[type="checkbox"]{accent-color:#276fa5;vertical-align:-
  <div class="suspects">
    <div class="title">📋 용의자별 증거 비교표</div>
    <table>
-    <tr><th style="width:21%">용의자</th><th>증거 ①<br>볼펜 선폭</th><th>증거 ②<br>루미놀</th><th>증거 ③<br>지문</th><th style="width:18%">종합 판단</th></tr>
-    <tr><td>A 닥터 블루</td><td class="judge"><label><input type="radio" name="r1" value="일치"> 일치</label>&nbsp;&nbsp;<label><input type="radio" name="r1" value="불일치"> 불일치</label></td><td class="judge"><label><input type="radio" name="r9" value="반응"> 반응</label>&nbsp;&nbsp;<label><input type="radio" name="r9" value="무반응"> 무반응</label></td><td class="judge"><label><input type="radio" name="r2" value="일치"> 일치</label>&nbsp;&nbsp;<label><input type="radio" name="r2" value="불일치"> 불일치</label></td><td><label><input type="radio" name="r13" value="제외"> 제외</label>&nbsp;&nbsp;<label><input type="radio" name="r13" value="남음"> 남음</label></td></tr>
-    <tr><td>B 코딩 박사</td><td class="judge"><label><input type="radio" name="r3" value="일치"> 일치</label>&nbsp;&nbsp;<label><input type="radio" name="r3" value="불일치"> 불일치</label></td><td class="judge"><label><input type="radio" name="r10" value="반응"> 반응</label>&nbsp;&nbsp;<label><input type="radio" name="r10" value="무반응"> 무반응</label></td><td class="judge"><label><input type="radio" name="r4" value="일치"> 일치</label>&nbsp;&nbsp;<label><input type="radio" name="r4" value="불일치"> 불일치</label></td><td><label><input type="radio" name="r14" value="제외"> 제외</label>&nbsp;&nbsp;<label><input type="radio" name="r14" value="남음"> 남음</label></td></tr>
-    <tr><td>C 아트 선생님</td><td class="judge"><label><input type="radio" name="r5" value="일치"> 일치</label>&nbsp;&nbsp;<label><input type="radio" name="r5" value="불일치"> 불일치</label></td><td class="judge"><label><input type="radio" name="r11" value="반응"> 반응</label>&nbsp;&nbsp;<label><input type="radio" name="r11" value="무반응"> 무반응</label></td><td class="judge"><label><input type="radio" name="r6" value="일치"> 일치</label>&nbsp;&nbsp;<label><input type="radio" name="r6" value="불일치"> 불일치</label></td><td><label><input type="radio" name="r15" value="제외"> 제외</label>&nbsp;&nbsp;<label><input type="radio" name="r15" value="남음"> 남음</label></td></tr>
-    <tr><td>D 로봇 연구원</td><td class="judge"><label><input type="radio" name="r7" value="일치"> 일치</label>&nbsp;&nbsp;<label><input type="radio" name="r7" value="불일치"> 불일치</label></td><td class="judge"><label><input type="radio" name="r12" value="반응"> 반응</label>&nbsp;&nbsp;<label><input type="radio" name="r12" value="무반응"> 무반응</label></td><td class="judge"><label><input type="radio" name="r8" value="일치"> 일치</label>&nbsp;&nbsp;<label><input type="radio" name="r8" value="불일치"> 불일치</label></td><td><label><input type="radio" name="r16" value="제외"> 제외</label>&nbsp;&nbsp;<label><input type="radio" name="r16" value="남음"> 남음</label></td></tr>
+    <tr><th style="width:21%">용의자</th><th>증거 ①<br>볼펜 선폭</th><th>증거 ②<br>루미놀·자외선 반응</th><th>증거 ③<br>지문</th><th style="width:18%">종합 판단</th></tr>
+    <tr><td>A 닥터 블루</td><td class="judge"><span class="width-entry"><input type="number" class="width-mm" min="0" step="0.01" inputmode="decimal" placeholder="0.00" aria-label="볼펜 선폭"> <strong>mm</strong></span></td><td class="judge"><label><input type="radio" name="r9" value="반응"> 반응</label>&nbsp;&nbsp;<label><input type="radio" name="r9" value="무반응"> 무반응</label></td><td class="judge"><span class="judge"><label><input type="radio" name="fingerprint_1" value="일치"> 일치</label>&nbsp;&nbsp;<label><input type="radio" name="fingerprint_1" value="불일치"> 불일치</label></span></td><td><label><input type="radio" name="r13" value="제외"> 제외</label>&nbsp;&nbsp;<label><input type="radio" name="r13" value="남음"> 남음</label></td></tr>
+    <tr><td>B 코딩 박사</td><td class="judge"><span class="width-entry"><input type="number" class="width-mm" min="0" step="0.01" inputmode="decimal" placeholder="0.00" aria-label="볼펜 선폭"> <strong>mm</strong></span></td><td class="judge"><label><input type="radio" name="r10" value="반응"> 반응</label>&nbsp;&nbsp;<label><input type="radio" name="r10" value="무반응"> 무반응</label></td><td class="judge"><span class="judge"><label><input type="radio" name="fingerprint_2" value="일치"> 일치</label>&nbsp;&nbsp;<label><input type="radio" name="fingerprint_2" value="불일치"> 불일치</label></span></td><td><label><input type="radio" name="r14" value="제외"> 제외</label>&nbsp;&nbsp;<label><input type="radio" name="r14" value="남음"> 남음</label></td></tr>
+    <tr><td>C 아트 선생님</td><td class="judge"><span class="width-entry"><input type="number" class="width-mm" min="0" step="0.01" inputmode="decimal" placeholder="0.00" aria-label="볼펜 선폭"> <strong>mm</strong></span></td><td class="judge"><label><input type="radio" name="r11" value="반응"> 반응</label>&nbsp;&nbsp;<label><input type="radio" name="r11" value="무반응"> 무반응</label></td><td class="judge"><span class="judge"><label><input type="radio" name="fingerprint_3" value="일치"> 일치</label>&nbsp;&nbsp;<label><input type="radio" name="fingerprint_3" value="불일치"> 불일치</label></span></td><td><label><input type="radio" name="r15" value="제외"> 제외</label>&nbsp;&nbsp;<label><input type="radio" name="r15" value="남음"> 남음</label></td></tr>
+    <tr><td>D 로봇 연구원</td><td class="judge"><span class="width-entry"><input type="number" class="width-mm" min="0" step="0.01" inputmode="decimal" placeholder="0.00" aria-label="볼펜 선폭"> <strong>mm</strong></span></td><td class="judge"><label><input type="radio" name="r12" value="반응"> 반응</label>&nbsp;&nbsp;<label><input type="radio" name="r12" value="무반응"> 무반응</label></td><td class="judge"><span class="judge"><label><input type="radio" name="fingerprint_4" value="일치"> 일치</label>&nbsp;&nbsp;<label><input type="radio" name="fingerprint_4" value="불일치"> 불일치</label></span></td><td><label><input type="radio" name="r16" value="제외"> 제외</label>&nbsp;&nbsp;<label><input type="radio" name="r16" value="남음"> 남음</label></td></tr>
    </table>
  </div>
 
